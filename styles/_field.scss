@@ -1,0 +1,10 @@
+.field {
+    margin-top: 1%;
+    position: relative;
+    width: $field-width;
+    height: $field-height;
+    overflow: hidden;
+    background: url('../img/space.jpg') repeat-y 0 / 100% auto;
+    animation: ani infinite linear 10s;
+    animation-fill-mode: forwards;
+}
