@@ -4,6 +4,7 @@ import { Player } from './Player.js';
 import { Projectile } from './Projectile.js';
 import { Enemy } from './Enemy.js';
 import { Field } from './Field.js';
+import { Settings } from './Settings.js';
 
 export class Game {
 
@@ -11,11 +12,14 @@ export class Game {
     constructor() {
         if (Game.instance) return;
         Game.instance = this;
+        this.settings = new Settings(window.innerWidth, window.innerHeight);
         this.#runGame().#clearDOM();
     }
 
     #runGame(playerX, playerY, projectile) {
         const gameField = new Field();
+        gameField.element.style.width = `${this.settings.windowWidth}px`;
+        gameField.element.style.height = `${this.settings.windowHeight}px`;
         const player = new Player();
         gameField.element.appendChild(player.publicEl);
         player._readCoordinates()._spawnOnScreen()._moveOnField();
