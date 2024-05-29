@@ -1,0 +1,20 @@
+.player-position {
+    @include setFlex();
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: 0;
+    margin: 25px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    align-self: flex-start;
+}

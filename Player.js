@@ -9,15 +9,32 @@ export class Player {
         this.#element = document.createElement('div');
         this.#element.classList.add('player');
         this.#element.textContent = '🛦';
+        this.#createPlayerPositionDisplay(this.#initialX, this.#initialY);
+        this.#updatePlayerPositionDisplay();
     }
 
     get publicEl() {
         return this.#element;
     }
 
+    #createPlayerPositionDisplay(xpos, ypos) {
+        const html = `
+            <div class="player-position">
+            <p class="text">X: <span class="text__span--xposition">${xpos}</span></p>
+            <p class="text">Y: <span class="text__span--yposition">${ypos}</span></p>
+            </div>
+        `
+        document.querySelector('.field').insertAdjacentHTML('beforeend', html);
+    }
+
     _readCoordinates() {
         this.coords = this.#element.getBoundingClientRect();
         return this;
+    }
+
+    #updatePlayerPositionDisplay() {
+        document.querySelector('.text__span--xposition').textContent = this.#initialX;
+        document.querySelector('.text__span--yposition').textContent = this.#initialY;
     }
 
     _setStartPoint() {
@@ -38,6 +55,7 @@ export class Player {
             e.preventDefault();
             const key = e.key;
             this._detectCollisionWithBoard();
+            this.#updatePlayerPositionDisplay();
             switch (key) {
                 case "ArrowLeft":
                     this.#initialX -= this.#playerVelocity;

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap");
 *,
 *::after,
 *::before {
@@ -12,8 +13,9 @@ html {
 
 body {
   font-size: inherit;
-  font-weight: 600;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,4 +74,27 @@ body {
   background: url("../img/space.jpg") repeat-y 0/100% auto;
   animation: ani infinite linear 10s;
   animation-fill-mode: forwards;
+}
+
+.player-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 0;
+  margin: 25px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.text {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  align-self: flex-start;
 }/*# sourceMappingURL=main.css.map */
